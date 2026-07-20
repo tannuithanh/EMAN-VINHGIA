@@ -1,0 +1,15 @@
+D:\EMAN-VINHGIA\Eman\src\Eman.Application\bin\Debug\net8.0\Eman.Application.deps.json
+D:\EMAN-VINHGIA\Eman\src\Eman.Application\bin\Debug\net8.0\Eman.Application.dll
+D:\EMAN-VINHGIA\Eman\src\Eman.Application\bin\Debug\net8.0\Eman.Application.pdb
+D:\EMAN-VINHGIA\Eman\src\Eman.Application\bin\Debug\net8.0\Eman.Domain.dll
+D:\EMAN-VINHGIA\Eman\src\Eman.Application\bin\Debug\net8.0\Eman.Domain.pdb
+D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\Eman.Application.csproj.AssemblyReference.cache
+D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\Eman.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\Eman.Application.AssemblyInfoInputs.cache
+D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\Eman.Application.AssemblyInfo.cs
+D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\Eman.Application.csproj.CoreCompileInputs.cache
+D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\Eman.App.E0D3B666.Up2Date
+D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\Eman.Application.dll
+D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\refint\Eman.Application.dll
+D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\Eman.Application.pdb
+D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\ref\Eman.Application.dll

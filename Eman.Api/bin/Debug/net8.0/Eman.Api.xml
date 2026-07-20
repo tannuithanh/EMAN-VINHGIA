@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Eman.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Eman.Api.Controllers.HeThong.HeThongController.KiemTra">
+            <summary>
+            Kiểm tra API EMAN đang hoạt động.
+            </summary>
+        </member>
+    </members>
+</doc>

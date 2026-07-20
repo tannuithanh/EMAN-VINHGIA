@@ -1,0 +1,17 @@
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\bin\Debug\net8.0\Eman.Infrastructure.deps.json
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\bin\Debug\net8.0\Eman.Infrastructure.dll
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\bin\Debug\net8.0\Eman.Infrastructure.pdb
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\bin\Debug\net8.0\Eman.Application.dll
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\bin\Debug\net8.0\Eman.Domain.dll
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\bin\Debug\net8.0\Eman.Application.pdb
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\bin\Debug\net8.0\Eman.Domain.pdb
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\Eman.Infrastructure.csproj.AssemblyReference.cache
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\Eman.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\Eman.Infrastructure.AssemblyInfoInputs.cache
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\Eman.Infrastructure.AssemblyInfo.cs
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\Eman.Infrastructure.csproj.CoreCompileInputs.cache
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\Eman.Inf.6B535520.Up2Date
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\Eman.Infrastructure.dll
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\refint\Eman.Infrastructure.dll
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\Eman.Infrastructure.pdb
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\ref\Eman.Infrastructure.dll
