@@ -27,9 +27,17 @@ public sealed class DoiTacKinhDoanh : BaseEntity
 
     public string? TenNganHang { get; set; }
 
+    public Guid? DieuKienThanhToanId { get; set; }
+
+    public Guid? DieuKienGiaoHangId { get; set; }
+
     public TrangThaiHoatDong TrangThai { get; set; } = TrangThaiHoatDong.HoatDong;
 
     public LoaiDoiTac LoaiDoiTac { get; set; } = null!;
+
+    public DieuKienThanhToan? DieuKienThanhToan { get; set; }
+
+    public DieuKienGiaoHang? DieuKienGiaoHang { get; set; }
 
     public ICollection<BangGia> BangGias { get; set; } = [];
 }

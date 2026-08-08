@@ -10,7 +10,7 @@ namespace Eman.Api.Controllers.MasterData.BusinessPartners;
 
 [ApiController]
 [Route(ApiRoutes.MasterData + "/bang-gia")]
-[ApiExplorerSettings(GroupName = "MasterData")]
+[ApiExplorerSettings(GroupName = "BusinessPartners")]
 [SwaggerTag("Quản lý bảng giá của nhà cung cấp.")]
 public sealed class BangGiaController(IBangGiaService service) : ControllerBase
 {

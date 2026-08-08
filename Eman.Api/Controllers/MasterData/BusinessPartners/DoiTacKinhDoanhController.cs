@@ -10,7 +10,7 @@ namespace Eman.Api.Controllers.MasterData.BusinessPartners;
 
 [ApiController]
 [Route(ApiRoutes.MasterData + "/doi-tac-kinh-doanh")]
-[ApiExplorerSettings(GroupName = "MasterData")]
+[ApiExplorerSettings(GroupName = "BusinessPartners")]
 [SwaggerTag("Quản lý đối tác kinh doanh và nhà cung cấp.")]
 public sealed class DoiTacKinhDoanhController(IDoiTacKinhDoanhService service) : ControllerBase
 {

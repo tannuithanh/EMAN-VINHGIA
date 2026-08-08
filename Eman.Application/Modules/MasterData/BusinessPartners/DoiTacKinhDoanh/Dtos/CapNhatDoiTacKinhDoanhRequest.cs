@@ -38,6 +38,10 @@ public sealed class CapNhatDoiTacKinhDoanhRequest
     [MaxLength(250, ErrorMessage = "Tên ngân hàng không được vượt quá 250 ký tự.")]
     public string? TenNganHang { get; init; }
 
+    public Guid? DieuKienThanhToanId { get; init; }
+
+    public Guid? DieuKienGiaoHangId { get; init; }
+
     [Range(0, 1, ErrorMessage = "Trạng thái chỉ nhận 0 hoặc 1.")]
     public byte TrangThai { get; init; }
 

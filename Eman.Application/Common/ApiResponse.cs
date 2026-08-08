@@ -19,10 +19,11 @@ public sealed class ApiResponse<T>
             Data = data
         };
 
-    public static ApiResponse<T> Fail(string message)
+    public static ApiResponse<T> Fail(string message, T? data = default)
         => new()
         {
             Success = false,
-            Message = message
+            Message = message,
+            Data = data
         };
 }

@@ -9,6 +9,11 @@ D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\Eman.Api.pdb
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\Eman.Api.xml
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\Azure.Core.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\Azure.Identity.dll
+D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\ClosedXML.dll
+D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\ClosedXML.Parser.dll
+D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\DocumentFormat.OpenXml.dll
+D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\DocumentFormat.OpenXml.Framework.dll
+D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\ExcelNumberFormat.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\Humanizer.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
@@ -34,6 +39,8 @@ D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\Microsoft.OpenApi.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\RBush.dll
+D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\SixLabors.Fonts.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -47,6 +54,7 @@ D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\System.Composition.TypedParts
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\System.Drawing.Common.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\System.IO.Packaging.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\System.Memory.Data.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\System.Runtime.Caching.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
@@ -129,6 +137,7 @@ D:\EMAN-VINHGIA\Eman\src\Eman.Api\obj\Debug\net8.0\Eman.Api.AssemblyInfo.cs
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\obj\Debug\net8.0\Eman.Api.csproj.CoreCompileInputs.cache
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\obj\Debug\net8.0\Eman.Api.MvcApplicationPartsAssemblyInfo.cs
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\obj\Debug\net8.0\Eman.Api.MvcApplicationPartsAssemblyInfo.cache
+D:\EMAN-VINHGIA\Eman\src\Eman.Api\obj\Debug\net8.0\Eman.Api.sourcelink.json
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\obj\Debug\net8.0\scopedcss\bundle\Eman.Api.styles.css
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\obj\Debug\net8.0\staticwebassets.build.json
 D:\EMAN-VINHGIA\Eman\src\Eman.Api\obj\Debug\net8.0\staticwebassets.build.json.cache

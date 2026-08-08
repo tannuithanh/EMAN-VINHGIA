@@ -1,8 +1,7 @@
 using Eman.Application.Common.Persistence;
-using Eman.Application.Contracts.HeThong;
+using Eman.Infrastructure.Modules.Engineering;
 using Eman.Infrastructure.Modules.MasterData;
 using Eman.Infrastructure.Persistence;
-using Eman.Infrastructure.Services.HeThong;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,8 +25,7 @@ public static class DependencyInjection
             provider.GetRequiredService<EmanDbContext>());
 
         services.AddMasterDataModules();
-        services.AddScoped<IThongTinHeThongService, ThongTinHeThongService>();
-
+        services.AddEngineeringModules();
         return services;
     }
 }

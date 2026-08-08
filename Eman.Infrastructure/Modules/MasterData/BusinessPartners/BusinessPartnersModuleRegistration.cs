@@ -1,5 +1,9 @@
 using Eman.Application.Modules.MasterData.BusinessPartners.BangGia.Interfaces;
 using Eman.Application.Modules.MasterData.BusinessPartners.BangGia.Services;
+using Eman.Application.Modules.MasterData.BusinessPartners.DieuKienGiaoHang.Interfaces;
+using Eman.Application.Modules.MasterData.BusinessPartners.DieuKienGiaoHang.Services;
+using Eman.Application.Modules.MasterData.BusinessPartners.DieuKienThanhToan.Interfaces;
+using Eman.Application.Modules.MasterData.BusinessPartners.DieuKienThanhToan.Services;
 using Eman.Application.Modules.MasterData.BusinessPartners.DoiTacKinhDoanh.Interfaces;
 using Eman.Application.Modules.MasterData.BusinessPartners.DoiTacKinhDoanh.Services;
 using Eman.Application.Modules.MasterData.BusinessPartners.LoaiDoiTac.Interfaces;
@@ -7,6 +11,8 @@ using Eman.Application.Modules.MasterData.BusinessPartners.LoaiDoiTac.Services;
 using Eman.Application.Modules.MasterData.BusinessPartners.PhienBanBangGia.Interfaces;
 using Eman.Application.Modules.MasterData.BusinessPartners.PhienBanBangGia.Services;
 using Eman.Infrastructure.Repositories.MasterData.BusinessPartners.BangGia;
+using Eman.Infrastructure.Repositories.MasterData.BusinessPartners.DieuKienGiaoHang;
+using Eman.Infrastructure.Repositories.MasterData.BusinessPartners.DieuKienThanhToan;
 using Eman.Infrastructure.Repositories.MasterData.BusinessPartners.DoiTacKinhDoanh;
 using Eman.Infrastructure.Repositories.MasterData.BusinessPartners.LoaiDoiTac;
 using Eman.Infrastructure.Repositories.MasterData.BusinessPartners.PhienBanBangGia;
@@ -23,6 +29,12 @@ internal static class BusinessPartnersModuleRegistration
     {
         services.AddScoped<ILoaiDoiTacRepository, LoaiDoiTacRepository>();
         services.AddScoped<ILoaiDoiTacService, LoaiDoiTacService>();
+
+        services.AddScoped<IDieuKienThanhToanRepository, DieuKienThanhToanRepository>();
+        services.AddScoped<IDieuKienThanhToanService, DieuKienThanhToanService>();
+
+        services.AddScoped<IDieuKienGiaoHangRepository, DieuKienGiaoHangRepository>();
+        services.AddScoped<IDieuKienGiaoHangService, DieuKienGiaoHangService>();
 
         services.AddScoped<IDoiTacKinhDoanhRepository, DoiTacKinhDoanhRepository>();
         services.AddScoped<IDoiTacKinhDoanhService, DoiTacKinhDoanhService>();

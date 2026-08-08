@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Eman.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f951d84d03f6955b07b36b5aa642c8f6b1273ff9")]
 [assembly: System.Reflection.AssemblyProductAttribute("Eman.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Eman.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

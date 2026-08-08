@@ -2,6 +2,8 @@ using Eman.Application.Common;
 using Eman.Application.Common.Exceptions;
 using Eman.Application.Common.Helpers;
 using Eman.Application.Common.Persistence;
+using Eman.Application.Modules.MasterData.BusinessPartners.DieuKienGiaoHang.Interfaces;
+using Eman.Application.Modules.MasterData.BusinessPartners.DieuKienThanhToan.Interfaces;
 using Eman.Application.Modules.MasterData.BusinessPartners.DoiTacKinhDoanh.Dtos;
 using Eman.Application.Modules.MasterData.BusinessPartners.DoiTacKinhDoanh.Interfaces;
 using Eman.Application.Modules.MasterData.BusinessPartners.LoaiDoiTac.Interfaces;
@@ -13,6 +15,8 @@ namespace Eman.Application.Modules.MasterData.BusinessPartners.DoiTacKinhDoanh.S
 public sealed class DoiTacKinhDoanhService(
     IDoiTacKinhDoanhRepository repository,
     ILoaiDoiTacRepository loaiDoiTacRepository,
+    IDieuKienThanhToanRepository dieuKienThanhToanRepository,
+    IDieuKienGiaoHangRepository dieuKienGiaoHangRepository,
     IUnitOfWork unitOfWork) : IDoiTacKinhDoanhService
 {
     public async Task<PagedResult<DoiTacKinhDoanhDto>> LayDanhSachAsync(
@@ -27,6 +31,8 @@ public sealed class DoiTacKinhDoanhService(
             request.Keyword,
             request.LoaiDoiTacId,
             request.LaNhaCungCap,
+            request.DieuKienThanhToanId,
+            request.DieuKienGiaoHangId,
             trangThai,
             request.Page,
             request.PageSize,
@@ -56,6 +62,12 @@ public sealed class DoiTacKinhDoanhService(
         CancellationToken cancellationToken)
     {
         await KiemTraLoaiDoiTacAsync(request.LoaiDoiTacId, cancellationToken);
+        await KiemTraDieuKienThanhToanAsync(
+            request.DieuKienThanhToanId,
+            cancellationToken);
+        await KiemTraDieuKienGiaoHangAsync(
+            request.DieuKienGiaoHangId,
+            cancellationToken);
 
         var ma = ChuoiHelper.ChuanHoaMa(request.MaDoiTac);
         if (await repository.TonTaiMaAsync(ma, null, cancellationToken))
@@ -76,6 +88,8 @@ public sealed class DoiTacKinhDoanhService(
             Email = ChuoiHelper.ChuanHoaTuyChon(request.Email),
             SoTaiKhoan = ChuoiHelper.ChuanHoaTuyChon(request.SoTaiKhoan),
             TenNganHang = ChuoiHelper.ChuanHoaTuyChon(request.TenNganHang),
+            DieuKienThanhToanId = request.DieuKienThanhToanId,
+            DieuKienGiaoHangId = request.DieuKienGiaoHangId,
             TrangThai = TrangThaiHoatDong.HoatDong
         };
 
@@ -95,6 +109,22 @@ public sealed class DoiTacKinhDoanhService(
 
         RowVersionHelper.KiemTra(request.RowVersion, entity.RowVersion);
         await KiemTraLoaiDoiTacAsync(request.LoaiDoiTacId, cancellationToken);
+
+        if (request.DieuKienThanhToanId.HasValue)
+        {
+            await KiemTraDieuKienThanhToanAsync(
+                request.DieuKienThanhToanId.Value,
+                cancellationToken);
+            entity.DieuKienThanhToanId = request.DieuKienThanhToanId.Value;
+        }
+
+        if (request.DieuKienGiaoHangId.HasValue)
+        {
+            await KiemTraDieuKienGiaoHangAsync(
+                request.DieuKienGiaoHangId.Value,
+                cancellationToken);
+            entity.DieuKienGiaoHangId = request.DieuKienGiaoHangId.Value;
+        }
 
         var ma = ChuoiHelper.ChuanHoaMa(request.MaDoiTac);
         if (await repository.TonTaiMaAsync(ma, id, cancellationToken))
@@ -168,6 +198,50 @@ public sealed class DoiTacKinhDoanhService(
         }
     }
 
+    private async Task KiemTraDieuKienThanhToanAsync(
+        Guid dieuKienThanhToanId,
+        CancellationToken cancellationToken)
+    {
+        if (dieuKienThanhToanId == Guid.Empty)
+        {
+            throw new QuyTacNghiepVuException("Điều kiện thanh toán là bắt buộc.");
+        }
+
+        var dieuKien = await dieuKienThanhToanRepository.LayTheoIdAsync(
+            dieuKienThanhToanId,
+            false,
+            cancellationToken)
+            ?? throw new KhongTimThayException("Không tìm thấy điều kiện thanh toán.");
+
+        if (dieuKien.TrangThai != TrangThaiHoatDong.HoatDong)
+        {
+            throw new QuyTacNghiepVuException(
+                "Điều kiện thanh toán đã ngừng hoạt động.");
+        }
+    }
+
+    private async Task KiemTraDieuKienGiaoHangAsync(
+        Guid dieuKienGiaoHangId,
+        CancellationToken cancellationToken)
+    {
+        if (dieuKienGiaoHangId == Guid.Empty)
+        {
+            throw new QuyTacNghiepVuException("Điều kiện giao hàng là bắt buộc.");
+        }
+
+        var dieuKien = await dieuKienGiaoHangRepository.LayTheoIdAsync(
+            dieuKienGiaoHangId,
+            false,
+            cancellationToken)
+            ?? throw new KhongTimThayException("Không tìm thấy điều kiện giao hàng.");
+
+        if (dieuKien.TrangThai != TrangThaiHoatDong.HoatDong)
+        {
+            throw new QuyTacNghiepVuException(
+                "Điều kiện giao hàng đã ngừng hoạt động.");
+        }
+    }
+
     private static DoiTacKinhDoanhDto ChuyenDto(DoiTacKinhDoanhEntity entity)
         => new(
             entity.Id,
@@ -184,6 +258,12 @@ public sealed class DoiTacKinhDoanhService(
             entity.Email,
             entity.SoTaiKhoan,
             entity.TenNganHang,
+            entity.DieuKienThanhToanId,
+            entity.DieuKienThanhToan?.MaDieuKienThanhToan,
+            entity.DieuKienThanhToan?.TenDieuKienThanhToan,
+            entity.DieuKienGiaoHangId,
+            entity.DieuKienGiaoHang?.MaDieuKienGiaoHang,
+            entity.DieuKienGiaoHang?.TenDieuKienGiaoHang,
             (byte)entity.TrangThai,
             entity.CreatedAt,
             entity.UpdatedAt,

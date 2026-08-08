@@ -37,4 +37,9 @@ public sealed class TaoDoiTacKinhDoanhRequest
 
     [MaxLength(250, ErrorMessage = "Tên ngân hàng không được vượt quá 250 ký tự.")]
     public string? TenNganHang { get; init; }
+
+    public Guid DieuKienThanhToanId { get; init; }
+
+    public Guid DieuKienGiaoHangId { get; init; }
 }
+

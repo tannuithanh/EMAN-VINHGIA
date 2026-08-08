@@ -10,6 +10,7 @@ D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\Eman.Infrastructur
 D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\Eman.Infrastructure.AssemblyInfoInputs.cache
 D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\Eman.Infrastructure.AssemblyInfo.cs
 D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\Eman.Infrastructure.csproj.CoreCompileInputs.cache
+D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\Eman.Infrastructure.sourcelink.json
 D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\Eman.Inf.6B535520.Up2Date
 D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\Eman.Infrastructure.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Infrastructure\obj\Debug\net8.0\refint\Eman.Infrastructure.dll

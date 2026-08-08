@@ -10,6 +10,10 @@ public sealed class BoLocDoiTacKinhDoanhRequest
 
     public bool? LaNhaCungCap { get; init; }
 
+    public Guid? DieuKienThanhToanId { get; init; }
+
+    public Guid? DieuKienGiaoHangId { get; init; }
+
     [Range(0, 1, ErrorMessage = "Trạng thái chỉ nhận 0 hoặc 1.")]
     public byte? TrangThai { get; init; }
 

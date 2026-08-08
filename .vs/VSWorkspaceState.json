@@ -2,8 +2,16 @@
   "ExpandedNodes": [
     "",
     "\\Eman.Api",
-    "\\Eman.Api\\Controllers"
+    "\\Eman.Api\\Common",
+    "\\Eman.Api\\Common\\Routing",
+    "\\Eman.Api\\Controllers\\MasterData",
+    "\\Eman.Api\\Controllers\\MasterData\\BusinessPartners",
+    "\\Eman.Infrastructure\\Services",
+    "\\Eman.Infrastructure\\Services\\MasterData",
+    "\\Eman.Infrastructure\\Services\\MasterData\\Products",
+    "\\Eman.Infrastructure\\Services\\MasterData\\Products\\SanPham",
+    "\\Eman.Infrastructure\\Services\\MasterData\\Products\\SanPham\\Imports"
   ],
-  "SelectedNode": "\\Eman.Api\\Controllers\\MasterData",
+  "SelectedNode": "\\Eman.Api\\Common\\Routing\\ApiRoutes.cs",
   "PreviewInSolutionExplorer": false
 }

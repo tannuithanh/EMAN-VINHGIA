@@ -14,4 +14,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.6.2" />
   </ItemGroup>
+  <ItemGroup Label="LoaiBoImportCu">
+    <!--Loại bỏ source import dùng chung cũ còn sót lại khi chép đè source.-->
+    <Compile Remove="Controllers\Imports\**\*.cs" />
+  </ItemGroup>
 </Project>

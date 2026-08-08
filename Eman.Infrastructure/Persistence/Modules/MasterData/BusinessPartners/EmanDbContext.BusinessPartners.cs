@@ -12,6 +12,10 @@ public sealed partial class EmanDbContext
 
     public DbSet<DoiTacKinhDoanh> DoiTacKinhDoanhs => Set<DoiTacKinhDoanh>();
 
+    public DbSet<DieuKienThanhToan> DieuKienThanhToans => Set<DieuKienThanhToan>();
+
+    public DbSet<DieuKienGiaoHang> DieuKienGiaoHangs => Set<DieuKienGiaoHang>();
+
     public DbSet<BangGia> BangGias => Set<BangGia>();
 
     public DbSet<PhienBanBangGia> PhienBanBangGias => Set<PhienBanBangGia>();

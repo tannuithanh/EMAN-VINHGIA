@@ -11,7 +11,7 @@ namespace Eman.Api.Controllers.MasterData.BusinessPartners;
 
 [ApiController]
 [Route(ApiRoutes.MasterData + "/phien-ban-bang-gia")]
-[ApiExplorerSettings(GroupName = "MasterData")]
+[ApiExplorerSettings(GroupName = "BusinessPartners")]
 [SwaggerTag("Quản lý phiên bản bảng giá và vòng đời hiệu lực.")]
 public sealed class PhienBanBangGiaController(IPhienBanBangGiaService service) : ControllerBase
 {

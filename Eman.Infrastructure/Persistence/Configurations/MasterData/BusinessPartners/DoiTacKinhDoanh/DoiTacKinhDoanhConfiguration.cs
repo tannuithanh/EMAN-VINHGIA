@@ -58,6 +58,12 @@ public sealed class DoiTacKinhDoanhConfiguration : IEntityTypeConfiguration<DoiT
             .HasColumnName("ten_ngan_hang")
             .HasMaxLength(250);
 
+        builder.Property(entity => entity.DieuKienThanhToanId)
+            .HasColumnName("dieu_kien_thanh_toan_id");
+
+        builder.Property(entity => entity.DieuKienGiaoHangId)
+            .HasColumnName("dieu_kien_giao_hang_id");
+
         builder.Property(entity => entity.TrangThai)
             .HasColumnName("trang_thai")
             .HasConversion<byte>()
@@ -70,10 +76,28 @@ public sealed class DoiTacKinhDoanhConfiguration : IEntityTypeConfiguration<DoiT
         builder.HasIndex(entity => entity.LoaiDoiTacId)
             .HasDatabaseName("IX_md_doi_tac_kinh_doanh_loai_doi_tac_id");
 
+        builder.HasIndex(entity => entity.DieuKienThanhToanId)
+            .HasDatabaseName("IX_md_doi_tac_kinh_doanh_dieu_kien_thanh_toan_id");
+
+        builder.HasIndex(entity => entity.DieuKienGiaoHangId)
+            .HasDatabaseName("IX_md_doi_tac_kinh_doanh_dieu_kien_giao_hang_id");
+
         builder.HasOne(entity => entity.LoaiDoiTac)
             .WithMany(entity => entity.DoiTacKinhDoanhs)
             .HasForeignKey(entity => entity.LoaiDoiTacId)
             .OnDelete(DeleteBehavior.Restrict)
             .HasConstraintName("FK_md_doi_tac_kinh_doanh_loai_doi_tac");
+
+        builder.HasOne(entity => entity.DieuKienThanhToan)
+            .WithMany(entity => entity.DoiTacKinhDoanhs)
+            .HasForeignKey(entity => entity.DieuKienThanhToanId)
+            .OnDelete(DeleteBehavior.Restrict)
+            .HasConstraintName("FK_md_doi_tac_kinh_doanh_dieu_kien_thanh_toan");
+
+        builder.HasOne(entity => entity.DieuKienGiaoHang)
+            .WithMany(entity => entity.DoiTacKinhDoanhs)
+            .HasForeignKey(entity => entity.DieuKienGiaoHangId)
+            .OnDelete(DeleteBehavior.Restrict)
+            .HasConstraintName("FK_md_doi_tac_kinh_doanh_dieu_kien_giao_hang");
     }
 }

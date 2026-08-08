@@ -4,9 +4,14 @@
         <name>Eman.Api</name>
     </assembly>
     <members>
-        <member name="M:Eman.Api.Controllers.HeThong.HeThongController.KiemTra">
+        <member name="T:Eman.Api.Common.Routing.ApiRoutes">
             <summary>
-            Kiểm tra API EMAN đang hoạt động.
+            Tiền tố route dùng chung theo miền dữ liệu của EMAN.
+            </summary>
+        </member>
+        <member name="T:Eman.Api.Contracts.MasterData.Products.Imports.SanPhamImportFileRequest">
+            <summary>
+            Dữ liệu multipart/form-data dùng cho xem trước và import sản phẩm.
             </summary>
         </member>
     </members>

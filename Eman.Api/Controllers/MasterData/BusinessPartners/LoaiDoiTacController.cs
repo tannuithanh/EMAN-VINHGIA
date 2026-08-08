@@ -10,7 +10,7 @@ namespace Eman.Api.Controllers.MasterData.BusinessPartners;
 
 [ApiController]
 [Route(ApiRoutes.MasterData + "/loai-doi-tac")]
-[ApiExplorerSettings(GroupName = "MasterData")]
+[ApiExplorerSettings(GroupName = "BusinessPartners")]
 [SwaggerTag("Quản lý danh mục loại đối tác.")]
 public sealed class LoaiDoiTacController(ILoaiDoiTacService service) : ControllerBase
 {

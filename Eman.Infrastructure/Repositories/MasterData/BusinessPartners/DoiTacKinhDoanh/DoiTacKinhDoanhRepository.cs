@@ -13,6 +13,8 @@ public sealed class DoiTacKinhDoanhRepository(EmanDbContext dbContext)
         string? keyword,
         Guid? loaiDoiTacId,
         bool? laNhaCungCap,
+        Guid? dieuKienThanhToanId,
+        Guid? dieuKienGiaoHangId,
         TrangThaiHoatDong? trangThai,
         int page,
         int pageSize,
@@ -21,6 +23,8 @@ public sealed class DoiTacKinhDoanhRepository(EmanDbContext dbContext)
         var query = dbContext.DoiTacKinhDoanhs
             .AsNoTracking()
             .Include(entity => entity.LoaiDoiTac)
+            .Include(entity => entity.DieuKienThanhToan)
+            .Include(entity => entity.DieuKienGiaoHang)
             .AsQueryable();
 
         if (!string.IsNullOrWhiteSpace(keyword))
@@ -29,7 +33,15 @@ public sealed class DoiTacKinhDoanhRepository(EmanDbContext dbContext)
             query = query.Where(entity =>
                 entity.MaDoiTac.Contains(tuKhoa) ||
                 entity.TenDoiTac.Contains(tuKhoa) ||
-                (entity.MaSoThue != null && entity.MaSoThue.Contains(tuKhoa)));
+                (entity.MaSoThue != null && entity.MaSoThue.Contains(tuKhoa)) ||
+                (entity.SoTaiKhoan != null && entity.SoTaiKhoan.Contains(tuKhoa)) ||
+                (entity.TenNganHang != null && entity.TenNganHang.Contains(tuKhoa)) ||
+                (entity.DieuKienThanhToan != null &&
+                    (entity.DieuKienThanhToan.MaDieuKienThanhToan.Contains(tuKhoa) ||
+                     entity.DieuKienThanhToan.TenDieuKienThanhToan.Contains(tuKhoa))) ||
+                (entity.DieuKienGiaoHang != null &&
+                    (entity.DieuKienGiaoHang.MaDieuKienGiaoHang.Contains(tuKhoa) ||
+                     entity.DieuKienGiaoHang.TenDieuKienGiaoHang.Contains(tuKhoa))));
         }
 
         if (loaiDoiTacId.HasValue)
@@ -40,6 +52,18 @@ public sealed class DoiTacKinhDoanhRepository(EmanDbContext dbContext)
         if (laNhaCungCap.HasValue)
         {
             query = query.Where(entity => entity.LaNhaCungCap == laNhaCungCap.Value);
+        }
+
+        if (dieuKienThanhToanId.HasValue)
+        {
+            query = query.Where(entity =>
+                entity.DieuKienThanhToanId == dieuKienThanhToanId.Value);
+        }
+
+        if (dieuKienGiaoHangId.HasValue)
+        {
+            query = query.Where(entity =>
+                entity.DieuKienGiaoHangId == dieuKienGiaoHangId.Value);
         }
 
         if (trangThai.HasValue)
@@ -68,6 +92,8 @@ public sealed class DoiTacKinhDoanhRepository(EmanDbContext dbContext)
 
         return query
             .Include(entity => entity.LoaiDoiTac)
+            .Include(entity => entity.DieuKienThanhToan)
+            .Include(entity => entity.DieuKienGiaoHang)
             .SingleOrDefaultAsync(entity => entity.Id == id, cancellationToken);
     }
 

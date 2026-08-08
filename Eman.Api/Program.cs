@@ -20,17 +20,27 @@ builder.Services
             var errors = context.ModelState
                 .Where(item => item.Value?.Errors.Count > 0)
                 .ToDictionary(
-                    item => item.Key,
+                    item => System.Text.Json.JsonNamingPolicy.CamelCase.ConvertName(item.Key),
                     item => item.Value!.Errors
                         .Select(error => string.IsNullOrWhiteSpace(error.ErrorMessage)
                             ? "Giá trị không hợp lệ."
                             : error.ErrorMessage)
+                        .Distinct(StringComparer.Ordinal)
                         .ToArray());
+
+            var chiTietLoi = errors.Values
+                .SelectMany(items => items)
+                .Distinct(StringComparer.Ordinal)
+                .ToArray();
+
+            var message = chiTietLoi.Length == 0
+                ? "Dữ liệu không hợp lệ."
+                : $"Dữ liệu không hợp lệ: {string.Join(" ", chiTietLoi)}";
 
             return new BadRequestObjectResult(new
             {
                 success = false,
-                message = "Dữ liệu không hợp lệ.",
+                message,
                 errors,
                 traceId = context.HttpContext.TraceIdentifier
             });
@@ -43,25 +53,95 @@ builder.Services
 builder.Services.AddInfrastructure(builder.Configuration);
 
 // =======================================
-// 3) Swagger
+// 3) Swagger - tách riêng từng phần nghiệp vụ
 // =======================================
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
     options.EnableAnnotations();
 
-    options.SwaggerDoc("MasterData", new OpenApiInfo
+    options.SwaggerDoc("BusinessPartners", new OpenApiInfo
     {
-        Title = "EMAN Master Data API",
+        Title = "EMAN - MD - Đối tác kinh doanh",
         Version = "v1",
-        Description = "API dữ liệu gốc của hệ thống EMAN, ánh xạ các bảng md_*."
+        Description = "API Loại đối tác, Điều kiện thanh toán, Điều kiện giao hàng, Đối tác kinh doanh, Bảng giá và Phiên bản bảng giá."
     });
 
-    options.SwaggerDoc("System", new OpenApiInfo
+    options.SwaggerDoc("Products", new OpenApiInfo
     {
-        Title = "EMAN System API",
+        Title = "EMAN - MD - Sản phẩm",
         Version = "v1",
-        Description = "API kiểm tra và vận hành hệ thống EMAN."
+        Description = "API quản lý danh mục sản phẩm, tải mẫu, xem trước và import sản phẩm từ Excel."
+    });
+
+    options.SwaggerDoc("Materials", new OpenApiInfo
+    {
+        Title = "EMAN - MD - Vật tư",
+        Version = "v1",
+        Description = "API quản lý nhóm vật tư, cơ sở mua vật tư, danh mục vật tư, xuất Excel, tải mẫu, xem trước và import vật tư từ Excel."
+    });
+
+    options.SwaggerDoc("ProductTax", new OpenApiInfo
+    {
+        Title = "EMAN - MD - Thuế sản phẩm",
+        Version = "v1",
+        Description = "API quản lý danh mục thuế áp dụng cho sản phẩm."
+    });
+
+    options.SwaggerDoc("CapacityGroups", new OpenApiInfo
+    {
+        Title = "EMAN - MD - Nhóm năng lực",
+        Version = "v1",
+        Description = "API quản lý danh mục nhóm năng lực sản xuất."
+    });
+
+    options.SwaggerDoc("Warehouses", new OpenApiInfo
+    {
+        Title = "EMAN - MD - Kho",
+        Version = "v1",
+        Description = "API quản lý danh mục kho."
+    });
+
+    options.SwaggerDoc("Workshops", new OpenApiInfo
+    {
+        Title = "EMAN - MD - Phân xưởng",
+        Version = "v1",
+        Description = "API quản lý danh mục phân xưởng."
+    });
+
+    options.SwaggerDoc("UnitsOfMeasure", new OpenApiInfo
+    {
+        Title = "EMAN - MD - Đơn vị tính",
+        Version = "v1",
+        Description = "API quản lý danh mục đơn vị tính."
+    });
+
+    options.SwaggerDoc("BomCommon", new OpenApiInfo
+    {
+        Title = "EMAN - Engineering - B.O.M dùng chung",
+        Version = "v1",
+        Description = "API quản lý dữ liệu nền dùng chung cho B.O.M màu và B.O.M thô."
+    });
+
+    options.SwaggerDoc("BomColor", new OpenApiInfo
+    {
+        Title = "EMAN - Engineering - B.O.M màu",
+        Version = "v1",
+        Description = "API quản lý cấu hình và công thức riêng của B.O.M màu."
+    });
+
+    options.SwaggerDoc("BomCalculations", new OpenApiInfo
+    {
+        Title = "EMAN - Engineering - Tính toán B.O.M",
+        Version = "v1",
+        Description = "API tính thử, chẩn đoán và triển khai các bộ máy tính B.O.M màu, B.O.M thô trong tương lai."
+    });
+
+    options.SwaggerDoc("BomMaterial", new OpenApiInfo
+    {
+        Title = "EMAN - Engineering - B.O.M vật tư",
+        Version = "v1",
+        Description = "API quản lý phiên bản và thành phần B.O.M vật tư nhiều cấp."
     });
 
     options.DocInclusionPredicate((documentName, apiDescription) =>
@@ -148,6 +228,10 @@ app.UseExceptionHandler(errorApp =>
         {
             success = false,
             message,
+            errors = new Dictionary<string, string[]>
+            {
+                ["request"] = [message]
+            },
             traceId = context.TraceIdentifier
         });
     });
@@ -165,13 +249,45 @@ if (swaggerEnabled)
     app.UseSwaggerUI(options =>
     {
         options.SwaggerEndpoint(
-            "/swagger/MasterData/swagger.json",
-            "EMAN Master Data API v1");
+            "/swagger/BusinessPartners/swagger.json",
+            "MD - Đối tác kinh doanh");
         options.SwaggerEndpoint(
-            "/swagger/System/swagger.json",
-            "EMAN System API v1");
+            "/swagger/Products/swagger.json",
+            "MD - Sản phẩm");
+        options.SwaggerEndpoint(
+            "/swagger/Materials/swagger.json",
+            "MD - Vật tư");
+        options.SwaggerEndpoint(
+            "/swagger/ProductTax/swagger.json",
+            "MD - Thuế sản phẩm");
+        options.SwaggerEndpoint(
+            "/swagger/CapacityGroups/swagger.json",
+            "MD - Nhóm năng lực");
+        options.SwaggerEndpoint(
+            "/swagger/Warehouses/swagger.json",
+            "MD - Kho");
+        options.SwaggerEndpoint(
+            "/swagger/Workshops/swagger.json",
+            "MD - Phân xưởng");
+        options.SwaggerEndpoint(
+            "/swagger/UnitsOfMeasure/swagger.json",
+            "MD - Đơn vị tính");
+        options.SwaggerEndpoint(
+            "/swagger/BomCommon/swagger.json",
+            "Engineering - B.O.M dùng chung");
+        options.SwaggerEndpoint(
+            "/swagger/BomColor/swagger.json",
+            "Engineering - B.O.M màu");
+        options.SwaggerEndpoint(
+            "/swagger/BomCalculations/swagger.json",
+            "Engineering - Tính toán B.O.M");
+        options.SwaggerEndpoint(
+            "/swagger/BomMaterial/swagger.json",
+            "Engineering - B.O.M vật tư");
         options.DocumentTitle = "EMAN API";
         options.RoutePrefix = "swagger";
+        options.EnableFilter();
+        options.DisplayRequestDuration();
     });
 }
 
@@ -179,3 +295,8 @@ app.UseCors(frontendCorsPolicy);
 app.MapControllers();
 
 app.Run();
+
+// Cho phép project kiểm thử khởi động API bằng WebApplicationFactory.
+public partial class Program
+{
+}

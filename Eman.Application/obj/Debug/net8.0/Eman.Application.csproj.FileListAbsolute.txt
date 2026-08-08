@@ -8,6 +8,7 @@ D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\Eman.Application.Gene
 D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\Eman.Application.AssemblyInfoInputs.cache
 D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\Eman.Application.AssemblyInfo.cs
 D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\Eman.Application.csproj.CoreCompileInputs.cache
+D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\Eman.Application.sourcelink.json
 D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\Eman.App.E0D3B666.Up2Date
 D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\Eman.Application.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Application\obj\Debug\net8.0\refint\Eman.Application.dll

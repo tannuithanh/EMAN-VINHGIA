@@ -6,7 +6,14 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Eman.Application\Eman.Application.csproj" />
+    <PackageReference Include="ClosedXML" Version="0.105.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+  </ItemGroup>
+  <ItemGroup Label="LoaiBoImportCu">
+    <!--Loại bỏ source import dùng chung cũ còn sót lại khi chép đè source.-->
+    <Compile Remove="Modules\Imports\**\*.cs" />
+    <Compile Remove="Services\Imports\Common\ImportTemplateCatalogService.cs" />
+    <Compile Remove="Services\Imports\MasterData\**\*.cs" />
   </ItemGroup>
 </Project>

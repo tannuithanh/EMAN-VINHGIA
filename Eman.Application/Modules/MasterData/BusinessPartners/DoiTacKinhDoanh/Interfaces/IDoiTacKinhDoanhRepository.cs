@@ -9,6 +9,8 @@ public interface IDoiTacKinhDoanhRepository
         string? keyword,
         Guid? loaiDoiTacId,
         bool? laNhaCungCap,
+        Guid? dieuKienThanhToanId,
+        Guid? dieuKienGiaoHangId,
         TrangThaiHoatDong? trangThai,
         int page,
         int pageSize,

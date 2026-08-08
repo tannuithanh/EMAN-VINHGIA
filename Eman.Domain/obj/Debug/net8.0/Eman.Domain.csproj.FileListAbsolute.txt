@@ -5,6 +5,7 @@ D:\EMAN-VINHGIA\Eman\src\Eman.Domain\obj\Debug\net8.0\Eman.Domain.GeneratedMSBui
 D:\EMAN-VINHGIA\Eman\src\Eman.Domain\obj\Debug\net8.0\Eman.Domain.AssemblyInfoInputs.cache
 D:\EMAN-VINHGIA\Eman\src\Eman.Domain\obj\Debug\net8.0\Eman.Domain.AssemblyInfo.cs
 D:\EMAN-VINHGIA\Eman\src\Eman.Domain\obj\Debug\net8.0\Eman.Domain.csproj.CoreCompileInputs.cache
+D:\EMAN-VINHGIA\Eman\src\Eman.Domain\obj\Debug\net8.0\Eman.Domain.sourcelink.json
 D:\EMAN-VINHGIA\Eman\src\Eman.Domain\obj\Debug\net8.0\Eman.Domain.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Domain\obj\Debug\net8.0\refint\Eman.Domain.dll
 D:\EMAN-VINHGIA\Eman\src\Eman.Domain\obj\Debug\net8.0\Eman.Domain.pdb

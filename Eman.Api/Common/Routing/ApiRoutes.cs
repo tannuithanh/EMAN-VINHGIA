@@ -9,5 +9,16 @@ internal static class ApiRoutes
 
     public const string Transactions = "api/transactions";
 
-    public const string System = "api/he-thong";
+    public const string Engineering = "api/engineering";
+
+    public const string EngineeringBom = Engineering + "/bom";
+
+    public const string EngineeringBomDungChung = EngineeringBom + "/dung-chung";
+
+    public const string EngineeringBomMau = EngineeringBom + "/mau";
+
+    public const string EngineeringBomVatTu = EngineeringBom + "/vat-tu";
+
+    public const string EngineeringBomTinhToan = EngineeringBom + "/tinh-toan";
+
 }
